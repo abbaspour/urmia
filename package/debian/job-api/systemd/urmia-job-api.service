@@ -1,0 +1,17 @@
+[Unit]
+Description=Urmia Job API Service
+After=network.target
+
+[Service]
+User=urmia
+Group=urmia
+WorkingDirectory=/opt/urmia/srv-job-api/bin
+PIDFile=/var/run/urmia/srv-job-api.pid
+ExecStart=/opt/urmia/srv-job-api/bin/start-job-api.sh
+ExecStop=/opt/urmia/srv-job-api/bin/stop-job-api.sh
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=urmia-job-api.service

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "create user"
+
+if test `egrep -c "^urmia:" /etc/group` -eq 0 ; then
+    echo "creating urmia group"
+    groupadd -g 1359 urmia
+fi
+
+if test `egrep -c "^urmia:" /etc/passwd` -eq 0 ; then
+    echo "creating urmia user"
+    useradd -c "Urmia Compute Storage" -u 1359 -g urmia -G docker -d /opt/urmia -s /bin/sh urmia
+else
+    gpasswd -a urmia docker
+fi
+
+exit 0

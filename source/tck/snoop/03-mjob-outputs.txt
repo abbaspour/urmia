@@ -1,0 +1,61 @@
+## mjob outputs (job without input)
+
+> 2014/10/15 18:26:53.531179  length=828 from=0 to=827
+GET /abbaspour/jobs/1cae7cca-013e-6865-a695-a15a15643632/live/out HTTP/1.1
+accept: application/x-json-stream
+date: Wed, 15 Oct 2014 07:26:53 GMT
+x-request-id: 67d7d2de-23c8-461c-8f8d-ad5225f54264
+authorization: Signature keyId="/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="L1X43nxBdJ2E23RGYX2p8wNRCAkwZJfEp0jfNxclsATM1cT2K3yQgJcD/plKdq/OhtESBHx7Ok6G0tWwp6MFgBOzd/qmcxDdfkTGiFU5KywXzoJ45TBSV95AKzgbhs4hxW/4yhv+tUbXtMJFk0nEw2CdyUU1pTrtsYisSul7li9GAWbWh40Cp+afWKW4HyG+A/JDR4y1zC4rZjrDeN6CF2xtXWL82KGHuSwzvyAw0rzvPggjWIcQMmANd8vx3QerxQ2bOF84QQXA/L7B181I8Ynp2efZONKFsMZ14y4+jJU2igUEd2CV5lswdsWleeFOKcTJCj9urbnRhVsgR1dbSQ=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+Host: localhost:1443
+Connection: keep-alive
+
+
+
+< 2014/10/15 18:26:56.936735  length=281 from=0 to=280
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Date: Wed, 15 Oct 2014 07:26:55 GMT
+Server: Manta
+x-request-id: 67d7d2de-23c8-461c-8f8d-ad5225f54264
+x-response-time: 254
+x-server-name: 60771e58-2ad0-4c50-8b23-86b72f9307f8
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+0
+
+
+
+## mjob  outputs -i -u https://localhost:1443 d081adc6-c193-48ef-a99a-85c4e5934cfb
+# /abbaspour/jobs/d081adc6-c193-48ef-a99a-85c4e5934cfb/stor/abbaspour/stor/treasure_island.txt.0.c8598f52-3c14-451a-9b2f-354579a2d5e8
+
+
+> 2014/10/16 17:22:36.025430  length=828 from=0 to=827
+GET /abbaspour/jobs/d081adc6-c193-48ef-a99a-85c4e5934cfb/live/out HTTP/1.1
+accept: application/x-json-stream
+date: Thu, 16 Oct 2014 06:22:35 GMT
+x-request-id: 5b77c022-7f84-426e-b423-f4cff32d20d6
+authorization: Signature keyId="/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="aOL7++/fkvudUOVG2W5Vrz4lji4NI3ivQPAriq7BNhTxVyZ7amJZ6xI7sfeNV/uN/jkFshDAogKlM7VYprhGkYMmk3E3npd21ZewuVPjA3Ini1z1HLIeCz4DvKepTfLCFYBsb90X4DzzeupGRM8DTFINipM3FkWCZcFpFYGPoSENdoKZ7aL1/jB5A9YsqvyHN1QxUOCsvKt0tIgnW3NvcltQapBjxlRCyhMCK+W4q+In4ufHeuqKvyt90baTjVQW6xBZodIny9zLtc6OC7ELHP3Vp/yd0Mq4ylR3eXKgHplWtLwgYerKvsjw05KyI9Locc9BTAlO3KieAGxJ7Up+nQ=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+Host: localhost:1443
+Connection: keep-alive
+
+< 2014/10/16 17:22:36.944113  length=418 from=0 to=417
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Date: Thu, 16 Oct 2014 06:22:36 GMT
+Server: Manta
+x-request-id: 5b77c022-7f84-426e-b423-f4cff32d20d6
+x-response-time: 23
+x-server-name: c84b3cab-1c20-4566-a880-0e202b6b63dd
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+84
+/abbaspour/jobs/d081adc6-c193-48ef-a99a-85c4e5934cfb/stor/abbaspour/stor/treasure_island.txt.0.c8598f52-3c14-451a-9b2f-354579a2d5e8
+
+0
+

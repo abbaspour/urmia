@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- see: http://logback.qos.ch/manual/layouts.html -->
+<!-- see: https://efficio.atlassian.net/svn/GCP/tags/july-6-2012/IBPMiddleware/src/main/resources/logback.xml -->
+
+<configuration scan="true" scanPeriod="10 seconds">
+
+    <!-- appender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd-HH:mm:ss.SSS} [%-5level] [%thread] [%logger{0}:%line] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="accessFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/var/log/urmia/storage-access.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/var/log/urmia/archive/storage-api-access-${HOSTNAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd-HH:mm:ss.SSS} [%thread] [${HOSTNAME}] %msg%n</pattern>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+    </appender>
+
+    <appender name="domainFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/var/log/urmia/api-root.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/var/log/urmia/archive/api-root-${HOSTNAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd-HH:mm:ss.SSS} [%-5level] [%thread] [%logger{0}:%line] - %msg%n</pattern>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+    </appender>
+
+    <!-- frameworks -->
+    <logger name="org.apache.commons.discovery" level="INFO"/>
+    <logger name="org.apache.commons.httpclient" level="INFO"/>
+
+    <!-- all clients -->
+    <!--
+    <logger name="io.urmia" level="DEBUG">
+        <appender-ref ref="domainFile" />
+    </logger>
+    -->
+
+    <!-- access log -->
+    <logger name="access" level="DEBUG" additivity="false">
+        <appender-ref ref="accessFile" />
+    </logger>
+
+    <!-- root appender -->
+    <root level="DEBUG">
+        <appender-ref ref="domainFile" />
+    </root>
+
+</configuration>

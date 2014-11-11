@@ -1,0 +1,116 @@
+## mjob list
+# 053bb054-b059-c9f4-ed5a-934c16aee2c5/
+# 1cae7cca-013e-6865-a695-a15a15643632/
+# 1fae0610-9699-ccf4-875f-f47415fae2a7/
+# 27bf8dcb-d45e-645c-9436-f8c6daa10e16/
+# 2f3d4b66-1d0b-edb1-e32a-e7103411f48f/
+# 36b3dfbf-58dc-4665-fbe1-f9a67a26b0d0/
+# 3a090576-2185-4ae6-af85-a19868312a19/
+# 3a5192e5-8879-4810-e93d-c54e8021c883/
+
+> 2014/10/22 08:14:27.752113  length=793 from=0 to=792
+GET /abbaspour/jobs?limit=1024 HTTP/1.1
+accept: application/x-json-stream
+date: Tue, 21 Oct 2014 21:14:27 GMT
+x-request-id: f0fe5f3a-4ac0-4445-834e-6f897b9feef7
+authorization: Signature keyId="/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="gmeclTzUN1Ao1N19z64NIWvY64Fl/2jW01lgXSK0ZoaP7kARA7au9xyNsf0yaSM7FhlDIlhxdnnczEYu91gM5Bc65zx6C840wwsnuK2rNiH03vAhhRnX9R8vFSIQt/38PRgTlVKvnAvE2blHykDjBGXUcZ5S3x5AiYeZnlCZku3VkaxVxCUU5lKW2q8W2jWdIwqhl7X1eCNpIGf99z4ZvvcrpvNCktH1H+Z2c6dXDRZ8/NqiJ0f8IlnyG/gkwvKAVbigwBDvvN8uOIA2epacAFUaJ6wxh7ZLYKhsPbyG5I5+k1IaIgsi4NPmM+CMKidBjmvCkWDcxkLVCkSq+L8nnQ=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+Host: localhost:1080
+Connection: keep-alive
+
+< 2014/10/22 08:14:31.734512  length=436 from=0 to=435
+HTTP/1.1 200 OK
+Content-Type: application/x-json-stream; type=directory
+Result-Set-Size: 22
+Date: Tue, 21 Oct 2014 21:14:31 GMT
+Server: Manta
+x-request-id: f0fe5f3a-4ac0-4445-834e-6f897b9feef7
+x-response-time: 757
+x-server-name: 39adec6c-bded-4a14-9d80-5a8bfc1121f9
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+66
+{"name":"053bb054-b059-c9f4-ed5a-934c16aee2c5","type":"directory","mtime":"2014-02-01T22:01:14.377Z"}
+
+< 2014/10/22 08:14:31.736473  length=216 from=436 to=651
+66
+{"name":"1cae7cca-013e-6865-a695-a15a15643632","type":"directory","mtime":"2014-10-15T08:16:18.338Z"}
+
+66
+{"name":"1fae0610-9699-ccf4-875f-f47415fae2a7","type":"directory","mtime":"2014-07-25T06:11:59.761Z"}
+
+< 2014/10/22 08:14:31.738974  length=216 from=652 to=867
+66
+{"name":"27bf8dcb-d45e-645c-9436-f8c6daa10e16","type":"directory","mtime":"2014-02-15T07:14:15.836Z"}
+
+66
+{"name":"2f3d4b66-1d0b-edb1-e32a-e7103411f48f","type":"directory","mtime":"2014-02-02T02:14:34.802Z"}
+
+< 2014/10/22 08:14:31.750211  length=2273 from=868 to=3140
+66
+{"name":"36b3dfbf-58dc-4665-fbe1-f9a67a26b0d0","type":"directory","mtime":"2014-06-15T00:31:30.518Z"}
+
+66
+{"name":"3a090576-2185-4ae6-af85-a19868312a19","type":"directory","mtime":"2014-02-15T07:15:04.186Z"}
+
+66
+{"name":"3a5192e5-8879-4810-e93d-c54e8021c883","type":"directory","mtime":"2014-07-24T04:25:52.257Z"}
+
+66
+{"name":"45e398f7-cb11-6bf5-e2db-8f3fbca4b593","type":"directory","mtime":"2014-06-15T00:42:49.004Z"}
+
+66
+{"name":"5f8d2c84-3870-e2a3-de2a-8283759020a1","type":"directory","mtime":"2014-07-24T04:27:04.514Z"}
+
+66
+{"name":"610c641f-5e3a-e266-ff87-9664dd171b37","type":"directory","mtime":"2014-08-03T02:46:12.866Z"}
+
+66
+{"name":"62cb5aaa-aedc-4af8-d8ba-edb90d270e1d","type":"directory","mtime":"2014-07-24T05:28:13.669Z"}
+
+66
+{"name":"6ac69aed-5a38-4e1f-8c00-b50515951434","type":"directory","mtime":"2014-07-24T03:52:01.298Z"}
+
+66
+{"name":"7282dc91-cd2a-66b6-9ee1-8d6f5852a2d3","type":"directory","mtime":"2014-08-06T07:04:44.605Z"}
+
+66
+{"name":"8b6ae343-57c3-ceb4-bbf9-c3cb274c02c8","type":"directory","mtime":"2014-10-15T08:31:26.460Z"}
+
+66
+{"name":"909b9ff7-60bc-e33f-b19e-d4d4827e58f3","type":"directory","mtime":"2014-07-24T04:30:08.061Z"}
+
+66
+{"name":"95d99099-319f-4e75-b4fa-ce47602efeee","type":"directory","mtime":"2014-08-03T10:08:53.386Z"}
+
+66
+{"name":"9915027b-198b-c526-8c4c-a32b294fa7aa","type":"directory","mtime":"2014-06-15T07:27:52.075Z"}
+
+66
+{"name":"a015f7ee-96a4-ced1-a2fc-a1ce09e632fd","type":"directory","mtime":"2014-06-15T03:41:53.912Z"}
+
+66
+{"name":"bae74b25-eb5f-ef73-f514-d4d59b489dcb","type":"directory","mtime":"2014-07-24T05:29:48.665Z"}
+
+66
+{"name":"c05448b1-89de-c15a-fd1d-bd7352938b79","type":"directory","mtime":"2014-07-24T04:50:30.573Z"}
+
+66
+{"name":"cf8deda9-3643-6c13-e0e8-b08b639a9dfb","type":"directory","mtime":"2014-07-24T05:25:18.828Z"}
+
+66
+{"name":"d081adc6-c193-48ef-a99a-85c4e5934cfb","type":"directory","mtime":"2014-10-16T06:20:42.945Z"}
+
+66
+{"name":"dc9e74a7-4dbb-c48c-b669-b21e02a98d8f","type":"directory","mtime":"2014-10-15T22:11:22.868Z"}
+
+66
+{"name":"e5fa07fa-6042-e2ad-c5c8-9e0beff1465d","type":"directory","mtime":"2014-07-24T04:50:56.600Z"}
+
+66
+{"name":"ed6e0083-5dcf-cffb-bb7a-81a5ccbf08ec","type":"directory","mtime":"2014-06-15T04:41:24.061Z"}
+
+0
+

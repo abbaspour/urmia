@@ -1,0 +1,20 @@
+{"name": "mrmdir", "hostname": "Amins-MacBook-Air.local", "pid": 18241, "component": "MantaClient", "level": 10, "client_res": {
+    "statusCode": 400,
+    "headers": {
+        "last-modified": "Mon, 05 May 2014 11:15:30 GMT",
+        "content-type": "application/json",
+        "content-length": "71",
+        "content-md5": "+gt0khB5vJWy1HNhJHiDNw==",
+        "date": "Mon, 05 May 2014 11:24:49 GMT",
+        "server": "Manta",
+        "x-request-id": "803bc587-4df7-46f2-9634-ecdddce7cdb4",
+        "x-response-time": "32",
+        "x-server-name": "39adec6c-bded-4a14-9d80-5a8bfc1121f9",
+        "connection": "keep-alive"
+    }
+}, "msg": "Response received", "time": "2014-05-05T11:24:49.727Z", "src": {
+    "file": "/usr/local/lib/node_modules/manta/node_modules/restify/lib/clients/http_client.js",
+    "line": 126,
+    "func": "onResponse"
+}, "v": 0}
+

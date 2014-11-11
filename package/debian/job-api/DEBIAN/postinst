@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "creating folders"
+
+mkdir -p /var/log/urmia
+chown -R urmia:urmia /var/log/urmia
+
+mkdir -p /var/run/urmia
+chown -R urmia:urmia /var/run/urmia
+
+echo "installing job api service"
+/bin/systemctl enable urmia-job-api.service
+
+exit 0
+

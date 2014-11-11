@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "disabling job api service"
+/usr/sbin/service urmia-job-api status
+[ $? -eq 0 ] && /usr/sbin/service urmia-job-api stop
+
+/bin/systemctl disable urmia-job-api.service
+
+exit 0

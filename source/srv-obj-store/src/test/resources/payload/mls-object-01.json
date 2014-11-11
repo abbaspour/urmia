@@ -1,0 +1,127 @@
+{
+    "01": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3434,
+        "component": "MantaClient",
+        "path": "/abbaspour/stor/foo",
+        "req_id": "44e08860-0eb8-44f1-878c-42da0cf30854",
+        "level": 20,
+        "headers": {
+            "accept": "application/json, */*",
+            "date": "Sun, 04 May 2014 21:34:17 GMT",
+            "x-request-id": "44e08860-0eb8-44f1-878c-42da0cf30854"
+        },
+        "id": "44e08860-0eb8-44f1-878c-42da0cf30854",
+        "query": {},
+        "msg": "info: entered",
+        "time": "2014-05-04T21:34:17.438Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/lib/client.js",
+            "line": 699,
+            "func": "info"
+        },
+        "v": 0
+    },
+    "02": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3434,
+        "component": "MantaClient",
+        "level": 10,
+        "client_req": {
+            "method": "HEAD",
+            "url": "/abbaspour/stor/foo",
+            "address": "us-east.manta.joyent.com",
+            "port": null,
+            "headers": {
+                "accept": "application/json, */*",
+                "date": "Sun, 04 May 2014 21:34:17 GMT",
+                "x-request-id": "44e08860-0eb8-44f1-878c-42da0cf30854",
+                "authorization": "Signature keyId=\"/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06\",algorithm=\"rsa-sha1\",signature=\"bqnvqYEt7sMx8rFARyucLDIBo+wLl9ejqZw/6K2hR33jQQKnubT6vRTtrHhAP1hHAsjmTcb5xRg88CyMLVB62d2t8W72v/IjYDLQE33EYOGA6A8K6QgelDPSyMQZIpg1teV3E2r/WiaM63vfnmB0kabp8HNDk6Emxs8NoWfuueAO8Kxp0pvyEjTU3iDn3iMQw77dbH3FET8rkNEJA/h22sf4Ia339/Om9ux2V9lB/BZehtZy1tcvyxjzAgIz8Fk4R9TJ+Ybh/pu2dGDc31YkbSHQvThCGU0itybwKW2w9Ec4okrNdY8RGCvB9BBey0GpmqKrjSBViGS3FOclYjWOYw==\"",
+                "user-agent": "restify/2.6.0 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1e) node/0.10.18",
+                "accept-version": "~1.0"
+            }
+        },
+        "msg": "request sent",
+        "time": "2014-05-04T21:34:17.490Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/node_modules/restify/lib/clients/http_client.js",
+            "line": 190,
+            "func": "rawRequest"
+        },
+        "v": 0
+    },
+
+
+    "03": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3434,
+        "component": "MantaClient",
+        "level": 10,
+        "client_res": {
+            "statusCode": 200,
+            "headers": {
+                "etag": "34a00783-78ba-caef-b441-97fde435d157",
+                "last-modified": "Sat, 01 Feb 2014 21:59:10 GMT",
+                "durability-level": "2",
+                "content-length": "13",
+                "content-md5": "D5d8orFj0tXSjLR+xB2OPQ==",
+                "content-type": "application/octet-stream",
+                "date": "Sun, 04 May 2014 21:34:17 GMT",
+                "server": "Manta",
+                "x-request-id": "44e08860-0eb8-44f1-878c-42da0cf30854",
+                "x-response-time": "17",
+                "x-server-name": "60771e58-2ad0-4c50-8b23-86b72f9307f8",
+                "connection": "keep-alive"
+            }
+        },
+        "msg": "Response received",
+        "time": "2014-05-04T21:34:19.071Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/node_modules/restify/lib/clients/http_client.js",
+            "line": 126,
+            "func": "onResponse"
+        },
+        "v": 0
+    },
+
+    "04": {
+        "name": "foo",
+        "hostname": "amins-air",
+        "pid": 3434,
+        "component": "MantaClient",
+        "path": "/abbaspour/stor/foo",
+        "req_id": "44e08860-0eb8-44f1-878c-42da0cf30854",
+        "level": 20,
+        "extension": "bin",
+        "type": "application/octet-stream",
+        "etag": "34a00783-78ba-caef-b441-97fde435d157",
+        "md5": "D5d8orFj0tXSjLR+xB2OPQ==",
+        "size": "13",
+        "headers": {
+            "etag": "34a00783-78ba-caef-b441-97fde435d157",
+            "last-modified": "Sat, 01 Feb 2014 21:59:10 GMT",
+            "durability-level": "2",
+            "content-length": "13",
+            "content-md5": "D5d8orFj0tXSjLR+xB2OPQ==",
+            "content-type": "application/octet-stream",
+            "date": "Sun, 04 May 2014 21:34:17 GMT",
+            "server": "Manta",
+            "x-request-id": "44e08860-0eb8-44f1-878c-42da0cf30854",
+            "x-response-time": "17",
+            "x-server-name": "60771e58-2ad0-4c50-8b23-86b72f9307f8",
+            "connection": "keep-alive"
+        },
+        "msg": "info: done",
+        "time": "2014-05-04T21:34:19.074Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/lib/client.js",
+            "line": 692,
+            "func": "onEnd"
+        },
+        "v": 0
+    }
+//foo
+}

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "disabling job run service"
+/usr/sbin/service urmia-job-run status
+[ $? -eq 0 ] && /usr/sbin/service urmia-job-run stop
+
+/bin/systemctl disable urmia-job-run.service
+
+exit 0

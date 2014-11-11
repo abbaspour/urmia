@@ -1,0 +1,8 @@
+Package: urmia-job-api
+Version: 0.1
+Section: base
+Priority: optional
+Architecture: all
+Recommends: openjdk-7-jre-headless
+Maintainer: Amin Abbaspour <amin@urmia.io>
+Description: Urmia.IO Job API

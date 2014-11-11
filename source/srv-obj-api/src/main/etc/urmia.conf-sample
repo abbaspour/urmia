@@ -1,0 +1,29 @@
+###
+## java executable path
+###
+#JAVA=
+
+###
+## the hostname. default to `hostname`
+###
+#HOST=
+
+###
+## zookeeper URL
+###
+#ZOOKEEPER=localhost:2181
+
+###
+## logback.xml path
+###
+#LOGBACK=
+
+###
+## console log path
+###
+#LOG_PATH=/var/log/urmia
+
+###
+## run file path
+###
+#RUN_PATH=/var/run/urmia

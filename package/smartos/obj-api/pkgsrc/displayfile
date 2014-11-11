@@ -1,0 +1,15 @@
+------------------------------------
+Urmia.io Platform - REST API service
+------------------------------------
+
+Note: a sample config file is placed at:  /opt/urmia/srv-obj-api/etc/urmia.conf-sample
+
+Consider taking a copy and setting proper values:
+
+    $ cp /opt/urmia/srv-obj-api/etc/urmia.conf-sample /opt/urmia/srv-obj-api/etc/urmia.conf
+    $ vi /opt/urmia/srv-obj-api/etc/urmia.conf
+    $ chown urmia:urmia /opt/urmia/srv-obj-api/etc/urmia.conf
+    $ pfexec svcadm enable svc:/network/urmia/api:default
+    $ tail -f /opt/urmia/srv-obj-api/var/log/api.log
+
+

@@ -1,0 +1,93 @@
+## mfind -n '.*.txt'
+# /abbaspour/stor/treasure_island.txt
+
+> 2014/10/16 17:17:52.131057  length=761 from=0 to=760
+HEAD /abbaspour/stor HTTP/1.1
+accept: */*
+date: Thu, 16 Oct 2014 06:17:52 GMT
+x-request-id: 75e46c9d-28a7-4be5-acc7-fe1a915fd66f
+authorization: Signature keyId="/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="kXy55R799DJNmwPDXecPNsEL4Ma8AxhkiFa4blb7eEkHhPZlGIJg9w7XjNlHCl0i4V3TcJ8ub1BE/+9SkAONEMlwJktWzsvFEFdbqTn9hVrdwqQB51UMqcQWvn53m56mbeGhKbQ1rPjq0nRioB14LMs/q9RFZ/YshxIC7YQO84MOVdgbuhLGqxib8zTKCZedIA/yBMEiP6Sj1hdAOyfBCyc6unZ1Sp9gkYrFg8fEfpQt6bIq61AV2aIogryoIAsNNsH6s/pazVsETVaz+nkZwGqArUagChKRvd5bDvG+ehZP9GS/90LSdvUOo0JUHJhApvQiiNmPLZpxbrfbn61p0A=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+Host: localhost:1443
+Connection: keep-alive
+
+< 2014/10/16 17:17:53.484499  length=298 from=0 to=297
+HTTP/1.1 200 OK
+Content-Type: application/x-json-stream; type=directory
+Result-Set-Size: 2
+Date: Thu, 16 Oct 2014 06:17:52 GMT
+Server: Manta
+x-request-id: 75e46c9d-28a7-4be5-acc7-fe1a915fd66f
+x-response-time: 17
+x-server-name: 02d02889-cd80-4ac1-bc0c-4775b86661e4
+Connection: keep-alive
+
+> 2014/10/16 17:17:53.521205  length=771 from=0 to=770
+GET /abbaspour/stor?limit=1024 HTTP/1.1
+accept: */*
+date: Thu, 16 Oct 2014 06:17:53 GMT
+x-request-id: 75e46c9d-28a7-4be5-acc7-fe1a915fd66f
+authorization: Signature keyId="/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="IsijFzjEWEr0MVKPEB0Q69zEBixwkYbWV8wL9Pxy+16gkBPu2Z1Macce/1/7Kt+LAfAbFCnsUoxqbMaNjp9BKqbjYLEh8xA6bpDE9iQkbLXWLqR69xhmhN2AfKohtmdpMCunnNMqzVWVM0gPO9xdm8drFdrDEWS/GNpI8knM09GU6wWM0pajrO0x+YLpq4deJGU4XILF98yLBB5O1ROXaBz2D3v462R+kmjdHh27ue4Tll7MARS6EICFmSpvuHC4dS7LKdtfBr4uUFm9fsNG0wH8MR4bMWBPnq+4fTUI8SAZ05dD4R6k+Mv58TEzcggIdUoJSHbtBW+DVblkrnOMKg=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+Host: localhost:1443
+Connection: keep-alive
+
+< 2014/10/16 17:17:54.466200  length=399 from=0 to=398
+HTTP/1.1 200 OK
+Content-Type: application/x-json-stream; type=directory
+Result-Set-Size: 2
+Date: Thu, 16 Oct 2014 06:17:53 GMT
+Server: Manta
+x-request-id: 75e46c9d-28a7-4be5-acc7-fe1a915fd66f
+x-response-time: 29
+x-server-name: c84b3cab-1c20-4566-a880-0e202b6b63dd
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+43
+{"name":"a","type":"directory","mtime":"2014-05-05T11:15:30.809Z"}
+
+< 2014/10/16 17:17:54.468273  length=143 from=399 to=541
+89
+{"name":"foo","etag":"34a00783-78ba-caef-b441-97fde435d157","size":13,"type":"object","mtime":"2014-02-01T21:59:10.808Z","durability":2}
+
+< 2014/10/16 17:17:54.483347  length=163 from=542 to=704
+9d
+{"name":"treasure_island.txt","etag":"548acb53-3035-4170-92db-c7b16b963ffb","size":391563,"type":"object","mtime":"2014-05-05T10:55:26.675Z","durability":2}
+
+< 2014/10/16 17:17:54.485132  length=5 from=705 to=709
+0
+
+> 2014/10/16 17:17:54.511341  length=773 from=0 to=772
+GET /abbaspour/stor/a?limit=1024 HTTP/1.1
+accept: */*
+date: Thu, 16 Oct 2014 06:17:54 GMT
+x-request-id: 75e46c9d-28a7-4be5-acc7-fe1a915fd66f
+authorization: Signature keyId="/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="MkQli4/vuOEdrCi/LfHxQCICdIfgoRMvjhPG8C7zTYJwLWQ0acGRTuHj0Olj5wlLDE+DhigUAZZ/wafjSSy8dzP1GXBYwBqe0tPFjqs5uA/ub+redTDaBMad6PrE34foocMl1ERxv36gdqVXJHx5oGdW+qXhFkBf49IcES/3ClogOUAwkUP/Tp1IzeVd70eHolQALmTm+X2Ummw7qixkOVsK8eTMJZrcAZLPNysfi5AwyYO8UZLu38d9RDYfvV6LF0dNuD/64nMWzoNn+3ioshmx6QORCgHorFmS6V99Qgbgu3YD5JWp36n/5yvO+0nK9yXldk0A14Y0VRQvuWs5Gg=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+Host: localhost:1443
+Connection: keep-alive
+
+< 2014/10/16 17:17:55.745196  length=523 from=0 to=522
+HTTP/1.1 200 OK
+Last-Modified: Mon, 05 May 2014 11:15:30 GMT
+Content-Type: application/x-json-stream; type=directory
+Result-Set-Size: 0
+Date: Thu, 16 Oct 2014 06:17:54 GMT
+Server: Manta
+x-request-id: 75e46c9d-28a7-4be5-acc7-fe1a915fd66f
+x-response-time: 20
+x-server-name: 39adec6c-bded-4a14-9d80-5a8bfc1121f9
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+91
+{"name":".DS_Store","etag":"807aacfd-9205-efd5-9420-f7e6979489a5","size":6148,"type":"object","mtime":"2014-05-05T11:15:40.187Z","durability":2}
+
+< 2014/10/16 17:17:55.747496  length=5 from=523 to=527
+0
+
+

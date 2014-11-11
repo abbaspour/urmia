@@ -1,0 +1,31 @@
+## mget -i -u https://localhost:1443 /abbaspour/jobs/d081adc6-c193-48ef-a99a-85c4e5934cfb/stor/abbaspour/stor/treasure_island.txt.0.c8598f52-3c14-451a-9b2f-354579a2d5e8
+# 7886
+
+> 2014/10/16 17:26:35.615621  length=876 from=0 to=875
+GET /abbaspour/jobs/d081adc6-c193-48ef-a99a-85c4e5934cfb/stor/abbaspour/stor/treasure_island.txt.0.c8598f52-3c14-451a-9b2f-354579a2d5e8 HTTP/1.1
+accept: */*
+date: Thu, 16 Oct 2014 06:26:35 GMT
+x-request-id: b57e1647-41f6-44e3-b428-dca3b9a17dbb
+authorization: Signature keyId="/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="KvuwMmnwR3WxhqHWr5tyDFVmp0mV01KIrKfTU3/duATWYh9jYytUfb+5nCk1xsIxMeUWVWHzuEpKWJnJSbowcBcaXPVBIGpZzoLLgSPBJ5kqqWKslcoUf7zzLqoxvIcGrTI9TaQyxfWA7rpN3B27RYUQq/GQ77/wN3JzkCME+375DMe5E21xEvGcRiARhGxgbTYKwHd/6h4o1ISOt/arr2QUvfsiwlc3brXEkOe2K8zVbTODPzkg/oaKF1OkqNHgubN3/q2R+4cH+IbcxBo2tWpDHaYnewmAZbNzGgArB3/07Fea5qWVUQjS9w3k7HlHOqvqXmqcuZ66R1BlDSFvKQ=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+Host: localhost:1443
+Connection: keep-alive
+
+< 2014/10/16 17:26:38.206419  length=457 from=0 to=456
+HTTP/1.1 200 OK
+Etag: 89ef2225-b795-c495-aa39-836590d1951c
+Last-Modified: Thu, 16 Oct 2014 06:20:39 GMT
+Accept-Ranges: bytes
+Content-Type: application/octet-stream
+Content-MD5: /MIs94Jyip20/xBrWMxRTA==
+Content-Length: 5
+Durability-Level: 2
+Date: Thu, 16 Oct 2014 06:26:37 GMT
+Server: Manta
+x-request-id: b57e1647-41f6-44e3-b428-dca3b9a17dbb
+x-response-time: 18
+x-server-name: 511ea59e-2a4a-486b-9258-ef59016d064d
+Connection: keep-alive
+
+7886

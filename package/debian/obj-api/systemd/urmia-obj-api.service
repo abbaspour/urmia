@@ -1,0 +1,17 @@
+[Unit]
+Description=Urmia Object API Service
+After=network.target
+
+[Service]
+User=urmia
+Group=urmia
+WorkingDirectory=/opt/urmia/srv-obj-api/bin
+PIDFile=/var/run/urmia/srv-obj-api.pid
+ExecStart=/opt/urmia/srv-obj-api/bin/start-mds.sh
+ExecStop=/opt/urmia/srv-obj-api/bin/stop-mds.sh
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=urmia-obj-api.service

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
+<service_bundle type="manifest" name="urmia-mds">
+
+    <service name="network/urmia/api" type="service" version="1">
+
+        <create_default_instance enabled="false"/>
+
+        <single_instance/>
+
+        <dependency name='network' grouping='require_all' restart_on='error' type='service'>
+            <service_fmri value='svc:/milestone/network:default'/>
+        </dependency>
+        <dependency name='filesystem-local' grouping='require_all' restart_on='none' type='service'>
+            <service_fmri value='svc:/system/filesystem/local:default'/>
+        </dependency>
+
+        <exec_method type="method" name="start"
+                     exec='su urmia -c "/opt/urmia/srv-obj-api/bin/start-mds.sh -c /opt/urmia/srv-obj-api/etc/urmia.conf"'
+                     timeout_seconds="60">
+            <method_context working_directory="/opt/urmia/srv-obj-api/bin"/>
+        </exec_method>
+
+        <exec_method type="method" name="stop"
+                     exec='su urmia -c "/opt/urmia/srv-obj-api/bin/stop-mds.sh"'
+                     timeout_seconds="60">
+            <method_context working_directory="/opt/urmia/srv-obj-api/bin"/>
+        </exec_method>
+
+        <!--<exec_method type="method" name="refresh" exec=":kill -HUP" timeout_seconds="60"/>-->
+
+        <!--
+        <property_group name="startd" type="framework">
+            <propval name="duration" type="astring" value="contract"/>
+            <propval name="ignore_error" type="astring" value="core,signal"/>
+        </property_group>
+        -->
+
+        <!--
+        <property_group name="urmia-mds" type="application">
+            <propval name="user" type="astring" value="urmia" override="true"/>
+        </property_group>
+        -->
+
+        <stability value="Evolving"/>
+
+        <template>
+            <common_name>
+                <loctext xml:lang="C">Urmia REST API daemon</loctext>
+            </common_name>
+            <documentation>
+                <doc_link name='urmia.io' uri='http://www.urmia.io/docs.html' />
+            </documentation>
+        </template>
+
+    </service>
+</service_bundle>

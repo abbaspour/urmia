@@ -1,0 +1,27 @@
+## mjob cancel -u http://localhost:1080 -a tck 41f6b130-2be8-4838-9c08-27e485154e68
+
+
+> 2014/10/23 17:20:22.285090  length=903 from=0 to=902
+POST /tck/jobs/41f6b130-2be8-4838-9c08-27e485154e68/live/cancel HTTP/1.1
+accept: application/json
+content-length: 2
+content-type: application/json
+date: Thu, 23 Oct 2014 06:20:22 GMT
+x-request-id: 3837d874-cf79-4b9d-ab42-1b2aae8de58e
+authorization: Signature keyId="/tck/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="LZ+CKo9y2FTkil3U9EStqgmI5Alglar/T+crDBur3XEyANtmLB85B6WQ7yVn8nFOjxiPsa595jFTS5G01rTg5u2YU0XD2HMI7P7zev2evItOcEvr/71uTZ/hUpprykT9Keednqh1VRXBGZ1rZ1sXzFVZnPvqGyzTi+eY/PFSCUbH+uEYy5R3ppRF4R+WrhVBdQwMDJBGkOkqXy8JCic0CU4ICpyBNOPliyVNWxJot+C8IHxn2qVjpJIJEuYZrxQoYjlkgcc3I3Ru33b3r6AlxCPpHNravouj5WUfWIwbBOMN8IO0vsVB+KoUMY1Fr9E4POzTsQV4n2nDBe9uoHccNA=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+content-md5: mZFLkyvTelC5g8XnyQrpOw==
+Host: localhost:1080
+Connection: keep-alive
+
+{}
+< 2014/10/23 17:28:12.514111  length=260 from=0 to=259
+HTTP/1.1 202 Accepted
+Date: Thu, 23 Oct 2014 06:28:12 GMT
+Server: Manta
+x-request-id: d9dea92f-7768-4e20-9533-ef2b1939cebc
+x-response-time: 36
+x-server-name: 60771e58-2ad0-4c50-8b23-86b72f9307f8
+Connection: keep-alive
+Transfer-Encoding: chunked

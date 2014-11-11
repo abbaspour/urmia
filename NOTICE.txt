@@ -1,0 +1,124 @@
+
+                            The Urmia Project
+                            =================
+
+Please visit the Urmia web site for more information:
+
+  * http://urmia.io/
+
+Copyright (C) 2014 Amin Abbaspour
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+Also, please refer to each <component>.txt file, which is located in
+the 'license' directory of the distribution file, for the license terms of the
+components that this product depends on.
+
+-------------------------------------------------------------------------------
+
+This product depends on 'SLF4J', a simple logging facade for Java, 
+which can be obtained at:
+
+  * LICENSE:
+    * license/SLF4J.txt (MIT License)
+  * HOMEPAGE:
+    * http://www.slf4j.org/
+
+This product depends on 'Logback', a successor to the popular log4j project
+which can be obtained at:
+
+  * LICENSE:
+    * license/Logback.txt (MIT License)
+  * HOMEPAGE:
+    * http://logback.qos.ch/
+
+This product depends on 'BoneCP', a fast, free, open-source, Java database 
+connection pool (JDBC Pool) library which can be obtained at:
+
+  * LICENSE:
+    * license/BoneCP.txt (Apache v2.0 License)
+  * HOMEPAGE:
+    * http://jolbox.com/
+
+This product depends on 'Netty', an asynchronous event-driven network 
+application framework which can be obtained at:
+
+  * LICENSE:
+    * license/Netty.txt (Apache v2.0 License)
+  * HOMEPAGE:
+    * http://netty.io/
+
+This product depends on 'Guava', a Google Core Libraries for Java 1.6+
+which can be obtained at:
+
+  * LICENSE:
+    * license/Guava.txt (Apache v2.0 License)
+  * HOMEPAGE:
+    * https://code.google.com/p/guava-libraries/
+
+
+This product depends on 'ZooKeeper', an open-source server which enables 
+highly reliable distributed coordination which can be obtained at:
+
+  * LICENSE:
+    * license/ZooKeeper.txt (Apache v2.0 License)
+  * HOMEPAGE:
+    * http://zookeeper.apache.org/
+
+
+This product depends on 'Curator', a ZooKeeper Keeper
+which can be obtained at:
+
+  * LICENSE:
+    * license/Curator.txt (Apache v2.0 License)
+  * HOMEPAGE:
+    * http://curator.apache.org/
+
+
+This product depends on 'Gson', a Java library to convert JSON to Java 
+objects and vice-versa which can be obtained at:
+
+  * LICENSE:
+    * license/Gson.txt (Apache v2.0 License)
+  * HOMEPAGE:
+    * https://code.google.com/p/google-gson/
+
+
+This product optionally depends on 'JZlib', a re-implementation of zlib in
+pure Java, which can be obtained at:
+
+  * LICENSE:
+    * license/JZlib.txt (BSD style License)
+  * HOMEPAGE:
+    * http://www.jcraft.com/jzlib/
+
+
+This product optionally depends on 'Javassist', a (Java Programming Assistant) 
+that makes Java bytecode manipulation simple, which can be obtained at:
+
+  * LICENSE:
+    * license/Javassist.txt (Apache v2.0 License)
+  * HOMEPAGE:
+    * http://www.csg.ci.i.u-tokyo.ac.jp/~chiba/javassist/
+
+
+This product optionally depends on 'Junit', a programmer-oriented testing 
+framework for Java which can be obtained at:
+
+  * LICENSE:
+    * license/Junit.txt (IBM's Common Public License Version 0.5)
+  * HOMEPAGE:
+    * http://junit.org/
+

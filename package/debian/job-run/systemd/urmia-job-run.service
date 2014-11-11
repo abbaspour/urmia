@@ -1,0 +1,17 @@
+[Unit]
+Description=Urmia Job Run Service
+After=network.target
+
+[Service]
+User=urmia
+Group=urmia
+WorkingDirectory=/opt/urmia/srv-job-run/bin
+PIDFile=/var/run/urmia/srv-job-run.pid
+ExecStart=/opt/urmia/srv-job-run/bin/start-job-run.sh
+ExecStop=/opt/urmia/srv-job-run/bin/stop-job-run.sh
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=urmia-job-run.service

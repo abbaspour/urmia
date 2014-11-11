@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "remove log files"
+
+#rm -rf /var/log/urmia
+rm -rf /var/run/urmia
+
+#userdel urmia
+
+exit 0

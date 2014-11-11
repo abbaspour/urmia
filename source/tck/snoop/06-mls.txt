@@ -1,0 +1,89 @@
+# mls
+
+> 2014/10/16 17:15:07.690706  length=779 from=0 to=778
+HEAD /abbaspour/stor HTTP/1.1
+accept: application/json, */*
+date: Thu, 16 Oct 2014 06:15:07 GMT
+x-request-id: 7396a844-f21e-43d9-b3a0-4cc604d69fb6
+authorization: Signature keyId="/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="cET9Qm3InackGYlIOKgY2jH3+mqDmOKeEJ4X+qkRzY5Ja28jb5Of4Or5QpaUQ7lzzAZOjX4/hXsVnjYWwsc0S68+T6PX3oQE9ohcPCfU0NEOrgfIznzkYi+jT1fMAMRGjDeWuyJ3fHY252UWVRThlw/d9lBRT5/OFpoq6My4O7ZeAvjN2hdZ3+aeJwx4wIB26MrXeqgJJdVQn/e7BcnFeRNjUvAwclaCA6FNNTduuWkWheTcaU2ty1iliggklOe/K8+oX62Nnxvxe8CdrKr7VVg1e8dJGi4iNBFYS6kz7/M9yiL64jncTW2j1alBFRGWzlAnmydvMGtt2Spf/isI6Q=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+Host: localhost:1443
+Connection: keep-alive
+
+< 2014/10/16 17:15:09.341336  length=298 from=0 to=297
+HTTP/1.1 200 OK
+Content-Type: application/x-json-stream; type=directory
+Result-Set-Size: 2
+Date: Thu, 16 Oct 2014 06:15:08 GMT
+Server: Manta
+x-request-id: 7396a844-f21e-43d9-b3a0-4cc604d69fb6
+x-response-time: 17
+x-server-name: 511ea59e-2a4a-486b-9258-ef59016d064d
+Connection: keep-alive
+
+> 2014/10/16 17:15:09.374875  length=793 from=0 to=792
+GET /abbaspour/stor?limit=1024 HTTP/1.1
+accept: application/x-json-stream
+date: Thu, 16 Oct 2014 06:15:09 GMT
+x-request-id: 45d95a50-2c20-4873-94e4-193fbac34f50
+authorization: Signature keyId="/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="X6/Njo6GR8G8n/eiTqhj6OTRHlsDLl8lv50PbIS5OQzGP7Yun/EsqH+ikd3AfXOvdGnse2bqo5oPhyXrbBzXevxynDoMBlP1cYX8WRWrgufkgdaiB0zm/eHvKHxFNfNVs+oJVXVEsxvfUR/9kX7prz5OW62eRid0cNmQ7cMGp5TAuK3nHYK8CbR6fpsf68f5Ixhi8gqnjE/0+ss1qXdQJIcxIe7Xf2/XwQniMlJpB9M3BezVgNelLs5YGHS4FF/qkAiP2VxjWIm3ZK45hURmw9+eDRqiJm5Nt3ittVE9drDtoCw8YQX0589UNS/bQPea9Z/EzeyveaQdesLs5Utirg=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+Host: localhost:1443
+Connection: keep-alive
+
+< 2014/10/16 17:15:10.337942  length=399 from=0 to=398
+HTTP/1.1 200 OK
+Content-Type: application/x-json-stream; type=directory
+Result-Set-Size: 2
+Date: Thu, 16 Oct 2014 06:15:09 GMT
+Server: Manta
+x-request-id: 45d95a50-2c20-4873-94e4-193fbac34f50
+x-response-time: 27
+x-server-name: 60771e58-2ad0-4c50-8b23-86b72f9307f8
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+43
+{"name":"a","type":"directory","mtime":"2014-05-05T11:15:30.809Z"}
+
+< 2014/10/16 17:15:10.339965  length=311 from=399 to=709
+89
+{"name":"foo","etag":"34a00783-78ba-caef-b441-97fde435d157","size":13,"type":"object","mtime":"2014-02-01T21:59:10.808Z","durability":2}
+
+9d
+{"name":"treasure_island.txt","etag":"548acb53-3035-4170-92db-c7b16b963ffb","size":391563,"type":"object","mtime":"2014-05-05T10:55:26.675Z","durability":2}
+
+0
+
+
+
+## mls -l -i -u https://localhost:1443 /abbaspour/jobs/d081adc6-c193-48ef-a99a-85c4e5934cfb/stor/abbaspour/stor/treasure_island.txt.0.c8598f52-3c14-451a-9b2f-354579a2d5e8
+# -rwxr-xr-x 1 abbaspour             5 Oct 16 17:20 treasure_island.txt.0.c8598f52-3c14-451a-9b2f-354579a2d5e8
+
+> 2014/10/16 17:24:37.286359  length=895 from=0 to=894
+HEAD /abbaspour/jobs/d081adc6-c193-48ef-a99a-85c4e5934cfb/stor/abbaspour/stor/treasure_island.txt.0.c8598f52-3c14-451a-9b2f-354579a2d5e8 HTTP/1.1
+accept: application/json, */*
+date: Thu, 16 Oct 2014 06:24:37 GMT
+x-request-id: 1399aad9-b9ee-4a5b-b68d-c298ac52e360
+authorization: Signature keyId="/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="hAnnB4XacvD/vOZWJe0yk1CXBf/M7IJIPa/2BWKc5aG5ZrYPcwsfGIhqAE2HMNHFhZ0EUdabJ4izGHiVfdiSycm/xGr67Ofrgao0lPQLwTiY4Dn6HLlZmTFz+q3h1L6Rt1KgFtDPILq6LMZJbQm0JR0xnXE0C/oHvV5KbydhpHpJdEqUhW+9dVD5q1wgquChgl1K71Xr08ax8YAtTWWc6LuR7jnldfUXkD9HpnfrgiLtRFz8DnN7IoFQ9gqw5ruHl6rne2qBZVJdvsibh+5JSzBX4GB5KGtM0+CDgheRQbH8/BRwtE6/GFszR3ZqUVsV8Vf73kNa5NYi9wWCq2fM/A=="
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30
+accept-version: ~1.0
+Host: localhost:1443
+Connection: keep-alive
+
+< 2014/10/16 17:24:38.263050  length=430 from=0 to=429
+HTTP/1.1 200 OK
+Etag: 89ef2225-b795-c495-aa39-836590d1951c
+Last-Modified: Thu, 16 Oct 2014 06:20:39 GMT
+Durability-Level: 2
+Content-Length: 5
+Content-MD5: /MIs94Jyip20/xBrWMxRTA==
+Content-Type: application/octet-stream
+Date: Thu, 16 Oct 2014 06:24:37 GMT
+Server: Manta
+x-request-id: 1399aad9-b9ee-4a5b-b68d-c298ac52e360
+x-response-time: 19
+x-server-name: 60771e58-2ad0-4c50-8b23-86b72f9307f8
+Connection: keep-alive

@@ -1,0 +1,8 @@
+zk=192.168.126.1:2181
+#logback=/opt/urmia/etc/logback.xml
+#java=path to jre
+
+## paths
+path_run=/var/run/urmia
+path_log=/var/log/urmia
+

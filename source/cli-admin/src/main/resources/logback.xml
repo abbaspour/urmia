@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="false" debug="false">
+
+    <appender name="cliLogFile" class="ch.qos.logback.core.FileAppender">
+        <file>../log/cli.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd-HH:mm:ss.SSS} [%-5level] [%thread] [%logger{0}:%line] - %msg%n</pattern>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+    </appender>
+
+    <!-- frameworks -->
+    <logger name="org.apache.zookeeper.ClientCnxn" level="INFO"/>
+
+    <!-- root appender -->
+    <root level="DEBUG">
+        <appender-ref ref="cliLogFile" />
+    </root>
+
+</configuration>

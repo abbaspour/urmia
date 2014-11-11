@@ -1,0 +1,45 @@
+#### mjob get id
+# {
+#   "id": "41f6b130-2be8-4838-9c08-27e485154e68",
+#   "name": "",
+#   "state": "created",
+#   "cancelled": false,
+#   "inputDone": true,
+#   "transient": false,
+#   "stats": {
+#     "errors": 0,
+#     "outputs": 0,
+#     "retries": 0,
+#     "tasks": 1,
+#     "tasksDone": 0
+#   },
+#   "timeCreated": "2014-10-22T08:40:34.497+11:00",
+#   "timeDone": "1970-01-01T10:00:00+10:00",
+#   "timeArchiveStarted": "1970-01-01T10:00:00+10:00",
+#   "timeArchiveDone": "1970-01-01T10:00:00+10:00",
+#   "phases": [
+#     {
+#       "exec": "ls",
+#       "type": "map"
+#     }
+#   ]
+# }
+
+> 2014/10/23 09:15:28.046734  length=810 from=0 to=809
+GET /tck/jobs/41f6b130-2be8-4838-9c08-27e485154e68/live/status HTTP/1.1\r
+accept: application/json\r
+date: Wed, 22 Oct 2014 22:15:28 GMT\r
+x-request-id: 84c7fef2-1929-4a51-a33e-27a0c4d74089\r
+authorization: Signature keyId="/tck/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06",algorithm="rsa-sha1",signature="Btrj20mlUCPulY/7nAClKB3gD80CwGP3d+rPMYJ3HHBqYksTffzCtO130ccbro60B+6vY8QOYkTkx8Lkr+4/7udA1nLzlI9NWjIKHiEWKG4Mg+ZlWBJ8oJhQeanvkI1K63nHjO/idD5EwQNgysou0Bm4am78JJieE4B/waDzplIVTSc/B7zudKVqgR3IUti5e/FUh3G5VdELJUHX3sbqNMG2fgbL7dVECsJYwY1i1N0hvgADkBJvL6PYNNSVKTAlA2+dtCU2lnPWRZ5991thUo6ARqALIGXM7dktcZLafIPUp6oTkQwrguCn3MPjWOfrhRsisgPoxO2APSr6kr7ErQ=="\r
+user-agent: restify/2.8.1 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1h) node/0.10.30\r
+accept-version: ~1.0\r
+Host: localhost:1080\r
+Connection: keep-alive\r
+\r
+< 2014/10/23 09:15:28.234361  length=504 from=0 to=503
+HTTP/1.1 200 OK\r
+Content-Type: application/json\r
+Content-Length: 413\r
+Connection: close\r
+\r
+{"id":"41f6b130-2be8-4838-9c08-27e485154e68","name":"","state":"created","cancelled":false,"inputDone":true,"transient":false,"stats":{"errors":0,"outputs":0,"retries":0,"tasks":1,"tasksDone":0},"timeCreated":"2014-10-22T08:40:34.497+11:00","timeDone":"1970-01-01T10:00:00+10:00","timeArchiveStarted":"1970-01-01T10:00:00+10:00","timeArchiveDone":"1970-01-01T10:00:00+10:00","phases":[{"exec":"ls","type":"map"}]}

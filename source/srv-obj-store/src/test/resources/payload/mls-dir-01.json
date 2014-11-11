@@ -1,0 +1,269 @@
+{
+    "01": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3391,
+        "component": "MantaClient",
+        "path": "/abbaspour/stor",
+        "req_id": "d43ecad9-d343-4417-8db3-af9405a9ff57",
+        "level": 20,
+        "headers": {
+            "accept": "application/json, */*",
+            "date": "Sun, 04 May 2014 21:25:19 GMT",
+            "x-request-id": "d43ecad9-d343-4417-8db3-af9405a9ff57"
+        },
+        "id": "d43ecad9-d343-4417-8db3-af9405a9ff57",
+        "query": {},
+        "msg": "info: entered",
+        "time": "2014-05-04T21:25:19.166Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/lib/client.js",
+            "line": 699,
+            "func": "info"
+        },
+        "v": 0
+    },
+
+    "02": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3391,
+        "component": "MantaClient",
+        "level": 10,
+        "client_req": {
+            "method": "HEAD",
+            "url": "/abbaspour/stor",
+            "address": "us-east.manta.joyent.com",
+            "port": null,
+            "headers": {
+                "accept": "application/json, */*",
+                "date": "Sun, 04 May 2014 21:25:19 GMT",
+                "x-request-id": "d43ecad9-d343-4417-8db3-af9405a9ff57",
+                "authorization": "Signature keyId=\"/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06\",algorithm=\"rsa-sha1\",signature=\"Lg/XWmYqPQp6YT+NbTWPwRqIfJq528hhbiffQPOlOPaQXVzgIFFCXvjcExop9dwUl3cVD7MVqmPf9qH2fVourYROUlmA+2JDpTxFy/kx93cX4wS1+s/hynHJeojsGkd80mdIXDoOrGUGpTF3pyC5vZbMyCKco7eolBtM2YmnrDhegfhvPn6eGKTVV9S7el2SKuIjq/TS3U4E2mg/ffWV+lmhIHWP4cNCFtQSHftikNC/VCDJpAlH+xGU7mTzSiBxrIwrM4ZnW6uX6dv4/YimlHDUXEadXVhDOcg8KhwHvTiJVk/2I5PL5iVLWP2+aG7HH8w3g96ZUDfOKNskFTUFcw==\"",
+                "user-agent": "restify/2.6.0 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1e) node/0.10.18",
+                "accept-version": "~1.0"
+            }
+        },
+        "msg": "request sent",
+        "time": "2014-05-04T21:25:19.207Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/node_modules/restify/lib/clients/http_client.js",
+            "line": 190,
+            "func": "rawRequest"
+        },
+        "v": 0
+    },
+
+
+    "03": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3391,
+        "component": "MantaClient",
+        "level": 10,
+        "client_res": {
+            "statusCode": 200,
+            "headers": {
+                "content-type": "application/x-json-stream; type=directory",
+                "result-set-size": "2",
+                "date": "Sun, 04 May 2014 21:25:26 GMT",
+                "server": "Manta",
+                "x-request-id": "d43ecad9-d343-4417-8db3-af9405a9ff57",
+                "x-response-time": "27",
+                "x-server-name": "39adec6c-bded-4a14-9d80-5a8bfc1121f9",
+                "connection": "keep-alive"
+            }
+        },
+        "msg": "Response received",
+        "time": "2014-05-04T21:25:27.976Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/node_modules/restify/lib/clients/http_client.js",
+            "line": 126,
+            "func": "onResponse"
+        },
+        "v": 0
+    },
+
+    "04": {
+        "name": "stor",
+        "hostname": "amins-air",
+        "pid": 3391,
+        "component": "MantaClient",
+        "path": "/abbaspour/stor",
+        "req_id": "d43ecad9-d343-4417-8db3-af9405a9ff57",
+        "level": 20,
+        "extension": "directory",
+        "type": "application/x-json-stream; type=directory",
+        "headers": {
+            "content-type": "application/x-json-stream; type=directory",
+            "result-set-size": "2",
+            "date": "Sun, 04 May 2014 21:25:26 GMT",
+            "server": "Manta",
+            "x-request-id": "d43ecad9-d343-4417-8db3-af9405a9ff57",
+            "x-response-time": "27",
+            "x-server-name": "39adec6c-bded-4a14-9d80-5a8bfc1121f9",
+            "connection": "keep-alive"
+        },
+        "msg": "info: done",
+        "time": "2014-05-04T21:25:27.979Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/lib/client.js",
+            "line": 692,
+            "func": "onEnd"
+        },
+        "v": 0
+    },
+
+    "05": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3391,
+        "component": "MantaClient",
+        "path": "/abbaspour/stor",
+        "req_id": "a038b236-f4cd-4551-94d0-1078150709f7",
+        "level": 20,
+        "msg": "ls: entered",
+        "time": "2014-05-04T21:25:27.981Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/lib/client.js",
+            "line": 841,
+            "func": "ls"
+        },
+        "v": 0
+    },
+
+    "06": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3391,
+        "component": "MantaClient",
+        "level": 10,
+        "client_req": {
+            "method": "GET",
+            "url": "/abbaspour/stor?limit=1024",
+            "address": "us-east.manta.joyent.com",
+            "port": null,
+            "headers": {
+                "accept": "application/x-json-stream",
+                "date": "Sun, 04 May 2014 21:25:27 GMT",
+                "x-request-id": "a038b236-f4cd-4551-94d0-1078150709f7",
+                "authorization": "Signature keyId=\"/abbaspour/keys/a1:ad:c7:2b:58:02:02:64:dd:41:38:94:0b:0a:41:06\",algorithm=\"rsa-sha1\",signature=\"E3lYJnmT81HWfZ4nuoB9OuUSFO7bS1PmCT18tLoFPnzlF0vzpr4HlafR6ZihEcsCUTUW5b+5cq9GwABo0l8TfwQqustwvhdgY1/6/uviLtiqsxBmVQiWU2jLvL9r63rcFXPrkj4hObS8abMFEbLhK+eMfi/I+6Fnw0fPrZWgmI63dI099PHamNN/Hk0JHyYDMWqJKDEsQQ2ihfWhPor44W8jTambVIpqBxPlZbaiop2gmfDd+vK//fKZtupbE8e6b7YsNmM6J4UFckEXPBSI1VHL2pOC32dtkpjx/8t3vi63R8mMXAaYzHj4eGSRDShC8U2tv4s7FQuMWLIP2n1q9w==\"",
+                "user-agent": "restify/2.6.0 (x64-darwin; v8/3.14.5.9; OpenSSL/1.0.1e) node/0.10.18",
+                "accept-version": "~1.0"
+            }
+        },
+        "msg": "request sent",
+        "time": "2014-05-04T21:25:27.990Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/node_modules/restify/lib/clients/http_client.js",
+            "line": 190,
+            "func": "rawRequest"
+        },
+        "v": 0
+    },
+
+    "07": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3391,
+        "component": "MantaClient",
+        "level": 10,
+        "client_res": {
+            "statusCode": 200,
+            "headers": {
+                "content-type": "application/x-json-stream; type=directory",
+                "result-set-size": "2",
+                "date": "Sun, 04 May 2014 21:25:29 GMT",
+                "server": "Manta",
+                "x-request-id": "a038b236-f4cd-4551-94d0-1078150709f7",
+                "x-response-time": "26",
+                "x-server-name": "7854e6a4-5c2e-4ed1-8551-f4e066ab817f",
+                "connection": "keep-alive",
+                "transfer-encoding": "chunked"
+            }
+        },
+        "msg": "Response received",
+        "time": "2014-05-04T21:25:31.176Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/node_modules/restify/lib/clients/http_client.js",
+            "line": 126,
+            "func": "onResponse"
+        },
+        "v": 0
+    },
+
+    "08": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3391,
+        "component": "MantaClient",
+        "path": "/abbaspour/stor",
+        "req_id": "a038b236-f4cd-4551-94d0-1078150709f7",
+        "level": 20,
+        "line": {
+            "name": "foo",
+            "etag": "34a00783-78ba-caef-b441-97fde435d157",
+            "size": 13,
+            "type": "object",
+            "mtime": "2014-02-01T21:59:10.808Z",
+            "durability": 2
+        },
+        "msg": "ls: line received",
+        "time": "2014-05-04T21:25:31.179Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/lib/client.js",
+            "line": 311,
+            "func": "onLine"
+        },
+        "v": 0
+    },
+    //foo
+
+
+    "09": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3391,
+        "component": "MantaClient",
+        "path": "/abbaspour/stor",
+        "req_id": "a038b236-f4cd-4551-94d0-1078150709f7",
+        "level": 20,
+        "line": {
+            "name": "treasure_island.txt",
+            "etag": "71f4dafc-bdc6-c9ab-84fc-d7bf378dd15c",
+            "size": 391563,
+            "type": "object",
+            "mtime": "2014-02-01T22:00:42.528Z",
+            "durability": 2
+        },
+        "msg": "ls: line received",
+        "time": "2014-05-04T21:25:31.181Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/lib/client.js",
+            "line": 311,
+            "func": "onLine"
+        },
+        "v": 0
+    },
+    //treasure_island.txt
+
+
+    "10": {
+        "name": "mls",
+        "hostname": "amins-air",
+        "pid": 3391,
+        "component": "MantaClient",
+        "path": "/abbaspour/stor",
+        "req_id": "a038b236-f4cd-4551-94d0-1078150709f7",
+        "level": 20,
+        "msg": "ls: done",
+        "time": "2014-05-04T21:25:31.182Z",
+        "src": {
+            "file": "/usr/local/lib/node_modules/manta/lib/client.js",
+            "line": 317,
+            "func": "ls_onEnd"
+        },
+        "v": 0
+    }
+
+}
