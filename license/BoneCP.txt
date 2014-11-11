@@ -1,0 +1,7 @@
+http://jolbox.com/index.html?page=http://jolbox.com/license.html
+
+License
+This project is currently licensed under Apache v2, though I'm willing to consider other licenses if this doesn't match your needs. You may also contact me if you require additional commercial support.
+
+Can I use BoneCP in closed-source applications?
+Yes.

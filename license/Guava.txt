@@ -1,0 +1,5 @@
+https://code.google.com/p/guava-libraries/
+
+Code license
+Apache License 2.0
+
