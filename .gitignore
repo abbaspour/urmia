@@ -1,0 +1,9 @@
+*.iml
+*.swp
+.idea
+*.log
+*.pid
+target
+run.pid
+d.tree
+nohup.out
