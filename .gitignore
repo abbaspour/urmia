@@ -3,6 +3,7 @@
 .idea
 *.log
 *.pid
+*.png
 target
 run.pid
 d.tree

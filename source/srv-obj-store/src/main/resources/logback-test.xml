@@ -37,7 +37,7 @@
     </appender>
 
     <!-- frameworks -->
-    <logger name="org.apache.zookeeper.ClientCnxn" level="WARN"/>
+    <logger name="org.apache.zookeeper" level="WARN"/>
 
     <!-- all clients -->
     <logger name="io.urmia" level="DEBUG">

@@ -23,8 +23,12 @@ package io.urmia.naming.service;
 import com.google.common.base.*;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Lists;
+import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.api.UnhandledErrorListener;
+import org.apache.curator.framework.state.ConnectionState;
+import org.apache.curator.framework.state.ConnectionStateListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.curator.x.discovery.*;
 import org.apache.curator.x.discovery.details.JsonInstanceSerializer;
@@ -52,13 +56,39 @@ public class ZkNamingServiceImpl implements NamingService {
 
     private final ServiceDiscovery<NodeType> naming;
     private final ServiceDiscovery<NodeType> discovery;
+    private final CuratorFramework client;
 
     public static final JsonInstanceSerializer<NodeType> serializer = new JsonInstanceSerializer<NodeType>(NodeType.class);
 
-    private static CuratorFramework mkClient(String address) {
-        CuratorFramework client = CuratorFrameworkFactory.newClient(address, new ExponentialBackoffRetry(1000, 3));
+    private static CuratorFramework mkClient(String address) throws InterruptedException {
+        log.info("zk mkClient: {}", address);
+        final RetryPolicy retryPolicy ;
+        retryPolicy = new ExponentialBackoffRetry(1000, 3);
+        //retryPolicy = new org.apache.curator.retry.RetryNTimes(3, 1000);
+        CuratorFramework client = CuratorFrameworkFactory.newClient(address, retryPolicy);
+        client.getUnhandledErrorListenable().addListener(new MyUnhandledErrorListener());
+        client.getConnectionStateListenable().addListener(new MyConnectionStateListener());
+        log.info("zk mkClient start...");
         client.start();
+        Thread.sleep(1000);
+        if(! client.getZookeeperClient().isConnected())
+            throw new ExceptionInInitializerError("unable to get initial zk connection...");
         return client;
+    }
+
+    private static class MyUnhandledErrorListener implements UnhandledErrorListener {
+
+        @Override
+        public void unhandledError(String message, Throwable e) {
+            log.error("unhandledError: {}", e.getMessage());
+            System.exit(-1);
+        }
+    }
+    private static class MyConnectionStateListener implements ConnectionStateListener {
+        @Override
+        public void stateChanged(CuratorFramework client, ConnectionState newState) {
+            log.info("connection stateChanged: {}", newState);
+        }
     }
 
     public ZkNamingServiceImpl(String address, int az) throws Exception {
@@ -66,6 +96,8 @@ public class ZkNamingServiceImpl implements NamingService {
     }
 
     public ZkNamingServiceImpl(CuratorFramework root, int az) throws Exception {
+
+        this.client = root;
 
         try {
             root.create().creatingParentsIfNeeded().withMode(CreateMode.PERSISTENT).forPath("/urmia/" + az + "/naming");
@@ -242,8 +274,10 @@ public class ZkNamingServiceImpl implements NamingService {
     public void deregister(ServiceInstance<NodeType> si) throws Exception {
         log.info("deregister: {}", si);
         if(si == null) return;
+        if(client == null) return;
+        if(client.getZookeeperClient().isConnected())
         //Preconditions.checkArgument(ServiceType.DYNAMIC == si.getServiceType());
-        discovery.unregisterService(si);
+            discovery.unregisterService(si);
     }
 
     private boolean isUp(ServiceInstance<NodeType> si) throws Exception {
