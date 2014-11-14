@@ -115,7 +115,7 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
             // example of reading only if at the end
             if (chunk instanceof LastHttpContent) {
 
-                log.debug("received LastHttpContent: {}", chunk);
+                log.trace("received LastHttpContent: {}", chunk);
 
                 if (HttpMethod.HEAD.equals(request.getMethod())) {
                     handleHEAD(ctx, request);
@@ -398,7 +398,7 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
                 || request.getProtocolVersion().equals(HttpVersion.HTTP_1_0)
                 && !HttpHeaders.Values.KEEP_ALIVE.equalsIgnoreCase(request.headers().get(HttpHeaders.Names.CONNECTION));
 
-        log.info("writeResponse close: {}, data: {}", close, response);
+        log.debug("writeResponse close: {}, data: {}", close, response);
 
         ChannelFuture future = ctx.writeAndFlush(response);
         // Close the connection after the write operation is done if necessary.
@@ -439,7 +439,7 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
 
     private void handlePUT(ChannelHandlerContext ctx, HttpRequest request) throws IOException {
 
-        log.info("handlePUT: {}", request);
+        log.debug("handlePUT: {}", request);
 
         final String location = getLocation(request);
 
@@ -480,7 +480,7 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
             fileChannel = new FileOutputStream(file).getChannel(); // todo: should close fis?
 
             readingChunks = HttpHeaders.isTransferEncodingChunked(request);
-            log.info("is chunk: {}", readingChunks);
+            //log.info("is chunk: {}", readingChunks);
 
             ctx.writeAndFlush(new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.CONTINUE)); // VoidChannelPromise
         }

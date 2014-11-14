@@ -13,25 +13,25 @@
     </appender>
 
     <appender name="accessFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>log/access-${HOSTNAME}.log</file>
+        <file>log/obj-store-access.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${logfileRotationPath}/${HOSTNAME}.access-%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd-HH:mm:ss.SSS} [%thread] [${HOSTNAME}] %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd-HH:mm:ss.SSS} [%thread] - %msg%n</pattern>
             <immediateFlush>false</immediateFlush>
         </encoder>
     </appender>
 
-    <appender name="domainFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>log/api.log</file>
+    <appender name="applicationFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/obj-store-application.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>log/rotate/${HOSTNAME}.api-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>log/rotate/${HOSTNAME}.obj-store-%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd-HH:mm:ss.SSS} [%-5level] [%thread] [%logger{0}:%line] - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd-HH:mm:ss.SSS} [%-5level] [%thread] [%logger{0}] - %msg%n</pattern>
             <immediateFlush>false</immediateFlush>
         </encoder>
     </appender>
@@ -40,9 +40,7 @@
     <logger name="org.apache.zookeeper" level="WARN"/>
 
     <!-- all clients -->
-    <logger name="io.urmia" level="DEBUG">
-        <appender-ref ref="domainFile" />
-    </logger>
+    <!--<logger name="io.urmia" level="DEBUG"/>-->
 
     <!-- access log -->
     <logger name="access" level="DEBUG" additivity="false">
@@ -50,8 +48,9 @@
     </logger>
 
     <!-- root appender -->
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="STDOUT" />
+        <!--<appender-ref ref="applicationFile" />-->
     </root>
 
 </configuration>

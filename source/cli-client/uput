@@ -64,6 +64,7 @@ opt_path=$1
 [ -f "$opt_file" ] || { echo >&2 "input is not a file: $opt_file"; exit 3; }
 
 declare -r cURL=$(which curl)
+#declare -r cURL=/usr/local/Cellar/curl/7.39.0/bin/curl
 [ $? -eq 0 ] || { echo "cURL not found in path"; exit 4; }
 
 declare filename=$(basename ${opt_file})
@@ -79,4 +80,5 @@ declare -r url="$opt_url$opt_path/$filename"
     echo -e "Target:\t$url"
 }
 
-${cURL} -# --progress-bar -i -X PUT -d @"$opt_file" ${url}
+# --progress-bar
+${cURL} --silent -X PUT -d @"$opt_file" ${url}
