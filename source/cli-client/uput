@@ -69,7 +69,7 @@ declare -r cURL=$(which curl)
 
 declare filename=$(basename ${opt_file})
 
-declare -r url="$opt_url$opt_path/$filename"
+declare -r url="$opt_url$opt_path"
 
 [ -z ${vrb} ] || {
     echo -e "file:\t$opt_file"

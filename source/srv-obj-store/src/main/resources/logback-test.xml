@@ -12,22 +12,22 @@
         </encoder>
     </appender>
 
-    <appender name="accessFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>log/obj-store-access.log</file>
+    <appender name="accessLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/access-ods.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logfileRotationPath}/${HOSTNAME}.access-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>log/rotate/access-ods.log-%d{yyyy-MM-dd}</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder>
             <pattern>%d{yyyy-MM-dd-HH:mm:ss.SSS} [%thread] - %msg%n</pattern>
-            <immediateFlush>false</immediateFlush>
+            <immediateFlush>true</immediateFlush>
         </encoder>
     </appender>
 
-    <appender name="applicationFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>log/obj-store-application.log</file>
+    <appender name="errorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/error-ods.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>log/rotate/${HOSTNAME}.obj-store-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>log/rotate/error-ods.log-%d{yyyy-MM-dd}</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -44,13 +44,13 @@
 
     <!-- access log -->
     <logger name="access" level="DEBUG" additivity="false">
-        <appender-ref ref="accessFile" />
+        <appender-ref ref="accessLog" />
     </logger>
 
     <!-- root appender -->
     <root level="INFO">
         <appender-ref ref="STDOUT" />
-        <!--<appender-ref ref="applicationFile" />-->
+        <appender-ref ref="errorLog" />
     </root>
 
 </configuration>

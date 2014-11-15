@@ -25,8 +25,8 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.handler.codec.http.*;
-import io.netty.handler.stream.ChunkedFile;
 import io.netty.util.CharsetUtil;
+import io.urmia.util.AccessLog;
 import io.urmia.util.DigestUtils;
 import io.urmia.util.FileTime;
 import io.urmia.util.StringUtils;
@@ -51,6 +51,7 @@ import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject> {
 
     private static final Logger log = LoggerFactory.getLogger(StorageServerHandler.class);
+    private static final AccessLog access = new AccessLog();
 
     private final String BASE;
 
@@ -59,6 +60,9 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
     boolean readingChunks = false;
 
     FileChannel fileChannel = null;
+
+    private volatile long requestStartMS;
+    private volatile String uri;
 
     public StorageServerHandler(String BASE) {
         this.BASE = BASE;
@@ -80,6 +84,8 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
 
 
         if (msg instanceof HttpRequest) {
+
+            requestStartMS = System.currentTimeMillis();
 
             request = (HttpRequest) msg;
 
@@ -140,6 +146,7 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
                     // TODO: reset() if exception catch or timeout (i.e. no LastHttpContent)
                     writeResponse(ctx, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK), true); // close the connection after upload (mput) done
                     reset();
+                    access.success(ctx, "PUT", uri, requestStartMS);
                     ctx.read();
                     return;
                 }
@@ -211,6 +218,7 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
 
         if (!file.exists()) {
             sendError(ctx, HttpResponseStatus.NOT_FOUND);
+            access.success(ctx, "DELETE", uri, requestStartMS);
             return;
         }
 
@@ -229,9 +237,11 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
         if (file.delete()) {
             log.info("deleted: {}", path);
             writeResponse(ctx, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.NO_CONTENT), true);
+            access.success(ctx, "DELETE", uri + " -> " + file.getAbsolutePath(), requestStartMS);
         } else {
             log.info("unable to delete: {}", path);
             sendError(ctx, HttpResponseStatus.BAD_REQUEST);
+            access.fail(ctx, "DELETE", uri, requestStartMS);
         }
 
     }
@@ -278,6 +288,9 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
             // Close the connection when the whole content is written out.
             lastContentFuture.addListener(ChannelFutureListener.CLOSE);
         }
+
+        access.success(ctx, "LIST", file.getAbsolutePath(), requestStartMS);
+
     }
 
     private String toJson(File f) throws IOException {
@@ -302,6 +315,7 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
             raf = new RandomAccessFile(file, "r");
         } catch (FileNotFoundException fnfe) {
             log.warn("no file at: {}", file.getPath());
+            access.fail(ctx, "GET", file.getAbsolutePath(), requestStartMS);
             sendError(ctx, NOT_FOUND);
             return;
         }
@@ -345,6 +359,7 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
 
         // Write the end marker
         ChannelFuture lastContentFuture = ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
+        access.success(ctx, "GET", file.getAbsolutePath(), requestStartMS);
 
         // Decide whether to close the connection or not.
         if (!isKeepAlive(request)) {
@@ -430,6 +445,8 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
             }
         }
 
+        access.success(ctx, "HEAD", request.getUri(), requestStartMS);
+
         ctx.writeAndFlush(response); // VoidChannelPromise
     }
 
@@ -466,13 +483,18 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
             log.info("mkdir at: {}", p);
             final boolean done = file.mkdirs();
 
-            if (done)
+
+            if (done) {
+                access.success(ctx, "MKDIR", uri, requestStartMS);
                 ctx.writeAndFlush(new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.NO_CONTENT));
-            else
+            } else {
+                access.fail(ctx, "MKDIR", uri, requestStartMS);
                 sendError(ctx, HttpResponseStatus.BAD_REQUEST);
+            }
 
         } else {
             file.getParentFile().mkdirs();
+            this.uri = uri;
 
             // todo: handle 'location' header for 'mln()'. e.i. no content
             //Path path = file.toPath();

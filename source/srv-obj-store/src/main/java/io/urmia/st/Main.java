@@ -90,9 +90,6 @@ public class Main {
                 return;
             }
 
-            System.err.println("port: " + port);
-            System.err.println("base: " + base);
-
             int nHeapArena = 1;
             int nDirectArena= 1;
             int pageSize=/*8192*/4096;
@@ -112,6 +109,8 @@ public class Main {
 
             Channel ch = b.bind(port).sync().channel();
             log.info("object storage Server (ODS) at port: {}", port);
+
+            System.err.println("starting ODS " + me.getId() + " on port: " + port + ", base: " + base);
 
             ch.closeFuture().sync();
         } finally {
