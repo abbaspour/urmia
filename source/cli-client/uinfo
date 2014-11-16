@@ -23,30 +23,20 @@ set -euo pipefail
 
 function usage() {
     cat <<END >&2
-USAGE: uput [OPTIONS] path
-        -f  file        # file
+USAGE: uinfo [OPTIONS] path
         -a  account     # account (defaults to MANTA_USER env variable)
         -u  URL         # URL (defaults to MANTA_URL env variable)
         -h|?            # usage
         -v              # verbose
 
 eg,
-     uput -f sample.txt -u http://localhost:8085 /tck/stor/sample.txt
+     uinfo -u http://localhost:8085 /tck/stor/sample.txt
 END
     exit $1
 }
 
-function isDir() {
-    [ $# -gt 0 ] || { echo 0; return; }
-    declare -r url=$1
-    [[ ${url} == */ ]] && { echo 1; return; }
-    declare -r c=$(${cURL} -s -i -X HEAD ${url} | grep -i ^content-type: | grep -c -i type=directory)
-    echo ${c}
-}
-
 declare vrb=''
 
-declare opt_file=''
 declare opt_path=''
 declare opt_url=${MANTA_URL}
 declare opt_account=${MANTA_USER}
@@ -54,7 +44,6 @@ declare opt_account=${MANTA_USER}
 while getopts "f:u:a:hv" opt
 do
     case ${opt} in
-        f) opt_file=${OPTARG};;
         u) opt_url=${OPTARG};;
         a) opt_account=${OPTARG};;
         h) usage 0;;
@@ -67,31 +56,18 @@ shift $(( OPTIND-1 ))
 
 opt_path=$1
 
-[ -z "$opt_file" ] && { echo >&2 "input file is mandatory"; usage 1; }
-[ -e "$opt_file" ] || { echo >&2 "input file does not exist: $opt_file"; exit 2; }
-[ -f "$opt_file" ] || { echo >&2 "input is not a file: $opt_file"; exit 3; }
-
 declare -r cURL=$(which curl)
 #declare -r cURL=/usr/local/Cellar/curl/7.39.0/bin/curl
 [ $? -eq 0 ] || { echo "cURL not found in path"; exit 4; }
 
-declare filename=$(basename ${opt_file})
-
-declare url="$opt_url$opt_path"
-declare -r is_dir=$(isDir ${url})
-[ ${is_dir} -eq 1 ] && {
-    [[ ${url} == */ ]] || url+='/'
-    url+="$filename"
-}
+declare -r url="$opt_url$opt_path"
 
 [ -z ${vrb} ] || {
-    echo -e "File:\t$opt_file"
     echo -e "URL :\t$opt_url"
-    echo -e "Path:\t$opt_path (directory=$is_dir)"
-    echo -e "user:\t$opt_account"
+    echo -e "path:\t$opt_path"
+    echo -e "account:\t$opt_account"
     echo -e "cURL:\t$cURL"
     echo -e "Target:\t$url"
 }
 
-# --progress-bar
-${cURL} --silent -X PUT -d @"$opt_file" ${url}
+${cURL} -i -X HEAD ${url}
