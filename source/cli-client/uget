@@ -1,0 +1,86 @@
+#!/bin/bash
+
+#
+# Copyright 2014 by Amin Abbaspour
+#
+# This file is part of Urmia.io
+#
+# Urmia.io is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Urmia.io is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Urmia.io.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+set -euo pipefail
+
+function usage() {
+    cat <<END >&2
+USAGE: uget [OPTIONS] path
+        -o  output      # file
+        -a  account     # account (defaults to MANTA_USER env variable)
+        -u  URL         # URL (defaults to MANTA_URL env variable)
+        -h|?            # usage
+        -v              # verbose
+
+eg,
+     uget -o sample.txt -u http://localhost:8085 /tck/stor/sample.txt
+END
+    exit $1
+}
+
+function isDir() {
+    [ $# -gt 0 ] || { echo 0; return; }
+    declare -r url=$1
+    [[ ${url} == */ ]] && { echo 1; return; }
+    declare -r c=$(${cURL} -s -i -X HEAD ${url} | grep -i ^content-type: | grep -c -i type=directory)
+    echo ${c}
+}
+
+declare vrb=''
+declare curl_args='--progress-bar'
+
+declare opt_file='-'
+declare opt_path=''
+declare opt_url=${MANTA_URL}
+declare opt_account=${MANTA_USER}
+
+while getopts "o:u:a:qhv" opt
+do
+    case ${opt} in
+        o) opt_file=${OPTARG};;
+        u) opt_url=${OPTARG};;
+        a) opt_account=${OPTARG};;
+        q) curl_args='-s';;
+        h) usage 0;;
+        v) vrb=1;;
+    esac
+done
+
+shift $(( OPTIND-1 ))
+[ $# -gt 0 ] || { echo >&2 "path is mandatory"; usage 1; }
+
+opt_path=$1
+declare url="$opt_url$opt_path"
+
+declare -r cURL=$(which curl)
+#declare -r cURL=/usr/local/Cellar/curl/7.39.0/bin/curl
+[ $? -eq 0 ] || { echo "cURL not found in path"; exit 4; }
+
+[ -z ${vrb} ] || {
+    echo -e "File:\t$opt_file"
+    echo -e "URL :\t$opt_url"
+    echo -e "Path:\t$opt_path"
+    echo -e "user:\t$opt_account"
+    echo -e "cURL:\t$cURL"
+    echo -e "Target:\t$url"
+}
+
+${cURL} ${curl_args} -o ${opt_file} ${url}
