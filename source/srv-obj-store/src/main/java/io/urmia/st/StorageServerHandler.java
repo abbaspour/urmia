@@ -198,7 +198,7 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
         m.put("code", code);
         m.put("message", message);
 
-        String json = StringUtils.mapToJson(m);
+        String json = StringUtils.mapToJson(m) + "\n";
         return Unpooled.copiedBuffer(json, CharsetUtil.UTF_8);
     }
 
@@ -454,7 +454,7 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
         return contentType != null && contentType.endsWith("; type=directory");
     }
 
-    private void handlePUT(ChannelHandlerContext ctx, HttpRequest request) throws IOException {
+    private void handlePUT(ChannelHandlerContext ctx, HttpRequest request) /*throws IOException*/ {
 
         log.debug("handlePUT: {}", request);
 
@@ -499,7 +499,15 @@ public class StorageServerHandler extends SimpleChannelInboundHandler<HttpObject
             // todo: handle 'location' header for 'mln()'. e.i. no content
             //Path path = file.toPath();
             //fileChannel = FileChannel.open(path, CREATE, WRITE);
-            fileChannel = new FileOutputStream(file).getChannel(); // todo: should close fis?
+            try {
+                fileChannel = new FileOutputStream(file).getChannel(); // todo: should close fis?
+            } catch (FileNotFoundException e) {
+                log.error("exception in opening file channel: {}, err: {}", file, e.getMessage());
+                writeResponse(ctx,
+                        new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST,
+                                errorBody("UploadError", "invalid path: " + uri)), true);
+                return;
+            }
 
             readingChunks = HttpHeaders.isTransferEncodingChunked(request);
             //log.info("is chunk: {}", readingChunks);
